@@ -6,6 +6,7 @@ const Navbar = () => {
         <li><NavLink to={`/login`}>Log In</NavLink></li>
         <li><NavLink to={`/register`}>Register</NavLink></li>
         <li><NavLink to={`/addproducts`}>Add Products</NavLink></li>
+        <li><NavLink to={`/mycart`}>My Cart</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
