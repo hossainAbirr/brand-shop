@@ -22,8 +22,9 @@ const BrandShopRouter = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5500/${params.brand}`)
             },
             {
-                path: '/productsdetails/:id',
-                element: <ProductsDetails></ProductsDetails>
+                path: '/productsdetails/:brand/:id',
+                element: <ProductsDetails></ProductsDetails>,
+                loader: ({params}) => fetch(`http://localhost:5500/${params.brand}/${params.id}`)
             },
             {
                 path: '/addproducts',

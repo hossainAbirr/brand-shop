@@ -1,5 +1,7 @@
 
 import { useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import CarCard from './CarCard';
 const BrandProducts = () => {
     const loadedData = useLoaderData();
     console.log(loadedData);
@@ -42,25 +44,10 @@ const BrandProducts = () => {
 
             <div className='grid grid-cols-1 gap-10 md:grid-cols-2 bg-base-200 my-20 py-24 px-10'>
                 {
-                    loadedData.map(car => (
-                        <div className="card  bg-base-100">
-                            <figure><img className='h-60 w-full' src={car.photo} /></figure>
-                            <div className="card-body text-left">
-                                <h2 className="card-title">
-                                    {car.name}
-                                    <div className="badge badge-secondary">{car.brand}</div>
-                                </h2>
-                                <p className='font-semibold'>Price : <span className='text-gray-400'> {car?.price}$</span> </p>
-                                <p className='text-black font-semibold'>
-                                    Rating : <span className='text-gray-400'> {car.rating} out of 5</span>
-                                </p>
-                                <div className="card-actions justify-end">
-                                    <div className="badge badge-outline">Details</div>
-                                    <div className="badge badge-outline">Update</div>
-                                </div>
-                            </div>
-                        </div>
-                    ))
+                    loadedData?.map(car => <CarCard
+                    key={car._id}
+                    car={car}
+                    ></CarCard>)
                 }
             </div>
         </div>
