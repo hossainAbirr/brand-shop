@@ -7,12 +7,11 @@ const AddProducts = () => {
         const name = form.name.value;
         const brand = form.brand.value;
         const price = form.name.value;
-        const priceInt = parseInt(price);
         const rating = form.rating.value;
         const description = form.description.value;
         const photo = form.photo.value;
         const newCar = {
-            name, brand, priceInt, rating, description, photo
+            name, brand, price, rating, description, photo
         }
         console.log(brand);
         fetch('http://localhost:5500/dynamicproducts',{
