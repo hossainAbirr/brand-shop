@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 const CarCard = ({ car }) => {
     const {_id, photo, name , brand, price, rating,  } = car
     const url = brand.split('-')
-    console.log(url);
     return (
         <div className="card  bg-base-100">
             <figure><img className='h-60 w-full' src={photo} /></figure>
@@ -18,7 +17,7 @@ const CarCard = ({ car }) => {
                 </p>
                 <div className="card-actions justify-end">
                     <div className="badge badge-outline"><Link to={`/productsdetails/${url[0]}/${_id}`}>Details</Link></div>
-                    <div className="badge badge-outline"><Link to={`/productsdetails/${_id}`}>Update</Link></div>
+                    <div className="badge badge-outline"><Link to={`/updateproducts/${url[0]}/${_id}`}>Update</Link></div>
                 </div>
             </div>
         </div>
