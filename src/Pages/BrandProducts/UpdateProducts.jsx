@@ -11,7 +11,7 @@ const UpdateProducts = () => {
         const form = e.target;
         const name = form.name.value;
         const brand = form.brand.value;
-        const price = form.name.value;
+        const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
         const photo = form.photo.value;
@@ -28,10 +28,10 @@ const UpdateProducts = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.acknowledg){
+                if(data.modifiedCount){
                     Swal.fire(
-                        'Good job!',
-                        'Your Product has been added!',
+                        'Congratulation!',
+                        'Product information has been updated!',
                         'success'
                       )
                 }
@@ -100,7 +100,7 @@ const UpdateProducts = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" name="Add Coffee" id="" className="btn btn-block bg-[#D2B48C] mt-8" />
+                <input type="submit" name="Add Coffee" value="Update Product" id="" className="btn btn-block bg-[#D2B48C] mt-8" />
             </form>
 
         </div>

@@ -6,7 +6,7 @@ const AddProducts = () => {
         const form = e.target;
         const name = form.name.value;
         const brand = form.brand.value;
-        const price = form.name.value;
+        const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
         const photo = form.photo.value;
@@ -58,7 +58,7 @@ const AddProducts = () => {
                                 <option value="tesla">Tesla</option>
                                 <option value="marcedes">Marcedes-Benz</option>
                                 <option value="ford">Ford</option>
-                                <option value="ferarri">Ferrari</option>
+                                <option value="ferrari">Ferrari</option>
                             </select>
                         </label>
                     </div>

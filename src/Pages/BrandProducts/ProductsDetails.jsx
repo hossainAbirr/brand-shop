@@ -1,5 +1,6 @@
 
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const ProductsDetails = () => {
     const singleCar = useLoaderData();
     const {name, photo, brand} = singleCar
@@ -16,12 +17,19 @@ const ProductsDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if(data.acknowledged){
+                    Swal.fire(
+                        'Well Done!',
+                        'Product has been added to your Cart!',
+                        'success'
+                      )
+                }
             })
     }
 
     return (
         <div className='text-left space-y-5'>
-            <img src={singleCar.photo} alt="" />
+            <img className='w-full' src={singleCar.photo} alt="" />
             <div className='flex justify-between gap-10'>
                 <div className='space-y-5'>
                     <h2 className='font-semibold text-xl'>Brand Name : <span className='uppercase text-gray-500 font-bold'>{singleCar.brand}</span> </h2>

@@ -39,7 +39,7 @@
         "founded": 1926,
         "country": "Germany",
         "headquarters": "Stuttgart, Germany",
-        "popular_models": ["C-Class", "E-Class", "S-Class", "GLC", "A-Class", "GLE"],
+        "popular_models": ["C-Class", "E-Class", "S-Class","A-Class", "GLC",  "GLE"],
         "website": "https://www.mercedes-benz.com/",
         "logo": "https://i.ibb.co/5kz9K42/marcedes.png",
         "url": "marcedes"
