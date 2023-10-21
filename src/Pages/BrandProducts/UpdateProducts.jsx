@@ -18,7 +18,7 @@ const UpdateProducts = () => {
         const newCar = {
             name, brand, price, rating, type, photo
         }
-        fetch(`http://localhost:5500/updateproducts/${url[0]}/${_id}`, {
+        fetch(`https://brand-shop-server-b8-a10.vercel.app/updateproducts/${url[0]}/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

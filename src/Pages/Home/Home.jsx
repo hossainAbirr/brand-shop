@@ -2,6 +2,8 @@
 import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Banner from '../../components/Banner';
+import AboutUs from '../../components/AboutUs';
+import PrivacyPolicy from '../../components/PrivacyPolicy';
 const Home = () => {
     const loadedBrands = useLoaderData();
     console.log(loadedBrands);
@@ -24,6 +26,8 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <PrivacyPolicy></PrivacyPolicy>
+            <AboutUs></AboutUs>
 
         </div>
     );

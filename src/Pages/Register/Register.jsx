@@ -46,7 +46,7 @@ const Register = () => {
                 }
                 const user = { email, password, name }
 
-                fetch('http://localhost:5500/users', {
+                fetch('https://brand-shop-server-b8-a10.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

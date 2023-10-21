@@ -15,7 +15,7 @@ const AddProducts = () => {
             name, brand, price, rating, description, photo, type
         }
         console.log(brand);
-        fetch('http://localhost:5500/dynamicproducts',{
+        fetch('https://brand-shop-server-b8-a10.vercel.app/dynamicproducts',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
