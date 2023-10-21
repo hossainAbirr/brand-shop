@@ -1,0 +1,70 @@
+[
+
+      {
+        "id" : 1,
+        "brand": "Rolls-Royce",
+        "founded": 1904,
+        "country": "United Kingdom",
+        "headquarters": "Goodwood, England",
+        "popular_models": ["Phantom", "Ghost", "Cullinan", "Wraith", "Dawn", "Silver Shadow"],
+        "website": "https://www.rolls-roycemotorcars.com/",
+        "logo": "https://i.ibb.co/kMbbhmT/rolls.webp",
+        "url": "rolls"
+      },
+      {
+        "id" : 2,
+        "brand": "BMW",
+        "founded": 1916,
+        "country": "Germany",
+        "headquarters": "Munich, Germany",
+        "popular_models": ["3 Series", "5 Series", "X5", "7 Series", "X3", "M5"],
+        "website": "https://www.bmwusa.com/",
+        "logo": "https://i.ibb.co/6w3MzTH/bmw.png",
+        "url": "bmw"
+      },
+      {
+        "id" : 3,
+        "brand": "Tesla",
+        "founded": 2003,
+        "country": "United States",
+        "headquarters": "Palo Alto, California, USA",
+        "popular_models": ["Model S", "Model 3", "Model X", "Model Y", "Roadster", "Cybertruck"],
+        "website": "https://www.tesla.com/",
+        "logo": "https://i.ibb.co/VxL5xYr/tesla.png",
+        "url": "tesla"
+      },
+      {
+        "id" : 4,
+        "brand": "Mercedes-Benz",
+        "founded": 1926,
+        "country": "Germany",
+        "headquarters": "Stuttgart, Germany",
+        "popular_models": ["C-Class", "E-Class", "S-Class","A-Class", "GLC",  "GLE"],
+        "website": "https://www.mercedes-benz.com/",
+        "logo": "https://i.ibb.co/5kz9K42/marcedes.png",
+        "url": "marcedes"
+      },
+      {
+        "id" : 5,
+        "brand": "Ford",
+        "founded": 1903,
+        "country": "United States",
+        "headquarters": "Dearborn, Michigan, USA",
+        "popular_models": ["F-150", "Mustang", "Explorer", "Escape", "Focus", "Ranger"],
+        "website": "https://www.ford.com/",
+        "logo": "https://i.ibb.co/2cxjVB1/ford.jpg",
+        "url": "ford"
+      },
+      {
+        "id" : 6,
+        "brand": "Ferrari",
+        "founded": 1939,
+        "country": "Italy",
+        "headquarters": "Maranello, Italy",
+        "popular_models": ["488 GTB", "F8 Tributo", "SF90 Stradale", "Portofino", "812 Superfast", "Roma"],
+        "website": "https://www.ferrari.com/",
+        "logo": "https://i.ibb.co/hXDPgTD/ferrari-logo.png",
+        "url": "ferrari"
+      }
+]
+  

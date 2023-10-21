@@ -6,12 +6,13 @@ const AddProducts = () => {
         const form = e.target;
         const name = form.name.value;
         const brand = form.brand.value;
+        const type = form.type.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
         const photo = form.photo.value;
         const newCar = {
-            name, brand, price, rating, description, photo
+            name, brand, price, rating, description, photo, type
         }
         console.log(brand);
         fetch('http://localhost:5500/dynamicproducts',{
@@ -35,13 +36,13 @@ const AddProducts = () => {
     }
     return (
         <div className="bg-[#F4F3F0] px-24 py-16">
-            <h2 className="text-3xl font-bold">Add Car by Brand Category</h2>
+            <h2 className="text-3xl font-bold">Add Product by Brand Category</h2>
             <form onSubmit={handleAddProducts}>
                 {/* name row */}
                 <div className="flex bg-[] gap-5">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text text-lg font-semibold">Car Name</span>
+                            <span className="label-text text-lg font-semibold">Product Name</span>
                         </label>
                         <label className="input-group">
                             <input type="text" placeholder="Enter Car Name &  Model" name="name" className="input input-bordered w-full" />
@@ -65,9 +66,21 @@ const AddProducts = () => {
                 </div>
                 {/* another row */}
                 <div className="flex bg-[] gap-5">
+                <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg font-semibold">Product Type</span>
+                        </label>
+                        <label className="input-group">
+                            <select type="text" placeholder="Enter Product Type" name="type" className="input input-bordered w-full">
+                                <option value='Car'>Car</option>
+                                <option value='Truck'>Truck</option>
+                                <option value='Motor Vehicle'>Motor Vehicle</option>
+                            </select>
+                        </label>
+                    </div>
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text text-lg font-semibold">Car Price</span>
+                            <span className="label-text text-lg font-semibold">Product Price</span>
                         </label>
                         <label className="input-group">
                             <input type="text" placeholder="Enter Car Price" name="price" className="input input-bordered w-full" />
@@ -75,7 +88,7 @@ const AddProducts = () => {
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text text-lg font-semibold">Car Rating</span>
+                            <span className="label-text text-lg font-semibold">Product Rating</span>
                         </label>
                         <label className="input-group">
                             <input type="text" placeholder="Enter Car Rating" name="rating" className="input input-bordered w-full" />
@@ -84,15 +97,18 @@ const AddProducts = () => {
                 </div>
                 {/* another row */}
                 <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control md:w-full">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Short Description</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" placeholder="Write Short description" name="description" className="input input-bordered w-full" />
+                            <textarea rows="8" cols="5"  type="text" placeholder="Write Short description" name="description" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2">
+                </div>
+                {/* another row  */}
+                <div className="flex bg-[] gap-5">
+                    <div className="form-control md:w-full">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Photo</span>
                         </label>

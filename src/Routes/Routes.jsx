@@ -9,10 +9,12 @@ import ProductsDetails from "../Pages/BrandProducts/ProductsDetails";
 import MyCart from "../Pages/MyCart/MyCart";
 import UpdateProducts from "../Pages/BrandProducts/UpdateProducts";
 import PrivateRoute from "./PrivateRoute";
+import ErrorRoute from "./ErrorRoute";
 const BrandShopRouter = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorRoute></ErrorRoute>,
         children: [
             {
                 path: '/',

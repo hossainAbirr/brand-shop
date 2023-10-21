@@ -2,8 +2,12 @@
 import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import CarCard from './CarCard';
+import NoProduct from './NoProduct';
 const BrandProducts = () => {
     const loadedData = useLoaderData();
+    if(loadedData.length === 0){
+        return <NoProduct></NoProduct>
+    }
     console.log(loadedData);
     const img1 = loadedData[0]?.photo;
     const img2 = loadedData[1]?.photo;
