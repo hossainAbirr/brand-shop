@@ -4,8 +4,10 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleLogIn, githubLogIn, logOut } = useContext(AuthContext);
     const [registrationError, setError] = useState(null);
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
@@ -32,6 +34,7 @@ const Register = () => {
             .then(result => {
                 console.log(result, 'Registration Successfull');
                 if (result.user) {
+                    logOut()
                     navigate('/login')
                 }
                 if (result.user) {
@@ -58,8 +61,49 @@ const Register = () => {
             .catch(error => {
                 console.error(error.message);
             })
+    };
 
-    }
+    const handleGoogleLogIn = () => {
+        return googleLogIn()
+            .then(result => {
+                console.log(result.user);
+                if (result.user) {
+                    navigate('/')
+                }
+                if (result.user) {
+                    Swal.fire(
+                        'Congratulation!',
+                        'Registration Successfull by Google!',
+                        'success'
+                    )
+                }
+            })
+            .catch(error => {
+                console.error(error.message);
+                console.error(error.code);
+            })
+    };
+
+    const handleGithubLogIn = () => {
+        return githubLogIn()
+            .then(result => {
+                console.log(result);
+                if (result.user) {
+                    Swal.fire(
+                        'Congratulation!',
+                        'Registration Successfull by GitHub!',
+                        'success'
+                    )
+                    navigate('/')
+                }
+            })
+            .catch(error => {
+                console.error(error.message);
+                console.error(error.code);
+            })
+    };
+
+
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -93,10 +137,11 @@ const Register = () => {
                         </div>
                         <p>Already have an account? Please <Link className={`font-bold text-blue-800 underline`} to={`/login`}>Login</Link></p>
 
-                        <div>
-                            
+                        <div className="mt-3 flex justify-center gap-5">
+                            <button onClick={handleGoogleLogIn} className="text-4xl"> <FcGoogle></FcGoogle> </button>
+                            <button onClick={handleGithubLogIn} className="text-4xl"> <AiFillGithub></AiFillGithub> </button>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control mt-3">
                             <button className="btn btn-primary text-white">Registration</button>
                         </div>
                         {registrationError && <p className="text-red-600">{registrationError}</p>

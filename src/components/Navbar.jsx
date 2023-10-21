@@ -2,25 +2,43 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom"
 import { AuthContext } from "../ProvidersForBrandShop/AuthProvider";
 import { useContext } from "react";
+import Swal from "sweetalert2";
+import avatar from '../assets/avatar.jpeg'
+import logan1 from '../assets/logan1.jpeg'
+import { useState } from "react";
+import { BsFillMoonFill, BsFillBrightnessHighFill } from "react-icons/bs";
 
 const Navbar = () => {
     const { user, loading, logOut } = useContext(AuthContext);
+    console.log(user);
+    const [theme, setTheme] = useState(true)
     const handleLogOut = () => {
         console.log('log Out');
         logOut()
-            .then(result => {
-                console.log(result);
+            .then(() => {
+                console.log('logged out');
+                Swal.fire(
+                    'Successfully Logged Out!',
+                    'success'
+                )
             })
             .catch(error => {
                 console.log(error);
             })
     }
+    const handleDark = () => {
+        document.querySelector("body").setAttribute("data-theme", "dark")
+        setTheme(!theme)
+    }
+    const handleLight = () => {
+        document.querySelector("body").setAttribute("data-theme", "light")
+        setTheme(!theme)
+    }
     const navLinks = <>
         <li><NavLink to={`/`}>Home</NavLink></li>
-        <li><NavLink to={`/login`}>Log In</NavLink></li>
-        <li><NavLink to={`/register`}>Register</NavLink></li>
         <li><NavLink to={`/addproducts`}>Add Products</NavLink></li>
         <li><NavLink to={`/mycart`}>My Cart</NavLink></li>
+        <li><NavLink to={`/register`}>Register</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -33,6 +51,9 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
+                <div className="w-30 h-12">
+                    <img className="w-full h-full rounded-full" src={logan1} alt="" />
+                </div>
                 <a className="btn btn-ghost normal-case text-xl">BrandShop</a>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -40,10 +61,26 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
+
+                {
+                    user ? <div className="avatar">
+                        <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src={user.photoURL ? user.photoURL : avatar} alt="" />
+                        </div>
+                    </div> : ''
+                }
+                {
+                    user &&
+                    <h2>{user.displayName ? user.displayName : `Name Not Found`}</h2>
+                }
                 {user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <button className="btn"><Link to='/login'>Log In</Link></button>
 
                 }
+                {
+                    theme ?  <button className="btn" onClick={handleDark}><BsFillMoonFill></BsFillMoonFill></button> : <button className="btn" onClick={handleLight}><BsFillBrightnessHighFill></BsFillBrightnessHighFill></button>
+                }
+                
             </div>
         </div>
     );

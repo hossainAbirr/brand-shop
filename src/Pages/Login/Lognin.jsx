@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-
+import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
 const Lognin = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleLogIn, githubLogIn } = useContext(AuthContext);
     const [registrationError, setError] = useState(null);
     const location = useLocation();
     console.log(location);
@@ -24,8 +25,8 @@ const Lognin = () => {
         logIn(email, password)
             .then(result => {
                 console.log(result);
-                
-                if(result.user){
+
+                if (result.user) {
                     navigate(location.state ? location.state : '/')
                 }
 
@@ -45,6 +46,46 @@ const Lognin = () => {
             })
 
     }
+    const handleGoogleLogIn = () => {
+        return googleLogIn()
+            .then(result => {
+                console.log(result.user);
+                if (result.user) {
+                    navigate(location.state ? location.state : '/')
+                }
+                if (result.user) {
+                    Swal.fire(
+                        'Congratulation!',
+                        'Successfully Logged In by Google!',
+                        'success'
+                    )
+                }
+            })
+            .catch(error => {
+                console.error(error.message);
+                console.error(error.code);
+            })
+    };
+
+    const handleGithubLogIn = () => {
+        return githubLogIn()
+            .then(result => {
+                console.log(result);
+                if (result.user) {
+                    Swal.fire(
+                        'Congratulation!',
+                        'Successfully Logged In by GitHub!',
+                        'success'
+                    )
+                    navigate(location.state ? location.state : '/')
+                }
+            })
+            .catch(error => {
+                console.error(error.message);
+                console.error(error.code);
+            })
+    };
+
     return (
 
         <div className="hero min-h-screen bg-base-200">
@@ -70,7 +111,10 @@ const Lognin = () => {
                             </label>
                         </div>
                         <p>don&apos;t have an account? Please <Link className={`font-bold text-blue-800 underline`} to={`/register`}>Register</Link></p>
-
+                        <div className="mt-3 flex justify-center gap-5">
+                            <button onClick={handleGoogleLogIn} className="text-4xl"> <FcGoogle></FcGoogle> </button>
+                            <button onClick={handleGithubLogIn} className="text-4xl"> <AiFillGithub></AiFillGithub> </button>
+                        </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary text-white">Log In</button>
                         </div>

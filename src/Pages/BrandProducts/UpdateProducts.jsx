@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const UpdateProducts = () => {
     const updateSingleCar = useLoaderData();
-    const {_id,name, brand, price, rating, description, photo} = updateSingleCar;
+    const { _id, name, brand, price, rating, type, photo } = updateSingleCar;
     const url = brand.split('-')
     // console.log(url);
     const handleUpdateProducts = e => {
@@ -13,10 +13,10 @@ const UpdateProducts = () => {
         const brand = form.brand.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        const description = form.description.value;
+        const type = form.type.value;
         const photo = form.photo.value;
         const newCar = {
-            name, brand, price, rating, description, photo
+            name, brand, price, rating, type, photo
         }
         fetch(`http://localhost:5500/updateproducts/${url[0]}/${_id}`, {
             method: 'PUT',
@@ -28,12 +28,12 @@ const UpdateProducts = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.modifiedCount){
+                if (data.modifiedCount) {
                     Swal.fire(
                         'Congratulation!',
                         'Product information has been updated!',
                         'success'
-                      )
+                    )
                 }
             })
     }
@@ -66,29 +66,35 @@ const UpdateProducts = () => {
                 <div className="flex bg-[] gap-5">
                     <div className="form-control md:w-1/2">
                         <label className="label">
+                            <span className="label-text text-lg font-semibold">Product Type</span>
+                        </label>
+                        <label className="input-group">
+                            <select type="text" placeholder="Enter Product Type" defaultValue={type} name="type" className="input input-bordered w-full">
+                                <option defaultValue={type}>{type}</option>
+                                <option value='Car'>Car</option>
+                                <option value='Truck'>Truck</option>
+                                <option value='Motor Vehicle'>Motor Vehicle</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
                             <span className="label-text text-lg font-semibold">Car Price</span>
                         </label>
                         <label className="input-group">
                             <input type="text" placeholder="Enter Car Price" defaultValue={price} name="price" className="input input-bordered w-full" />
                         </label>
                     </div>
+
+                </div>
+                {/* another row */}
+                <div className="flex bg-[] gap-5">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Car Rating</span>
                         </label>
                         <label className="input-group">
                             <input type="text" placeholder="Enter Car Rating" defaultValue={rating} name="rating" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                {/* another row */}
-                <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text text-lg font-semibold">Short Description</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" placeholder="Write Short description" defaultValue={description} name="description" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
