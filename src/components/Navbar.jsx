@@ -51,9 +51,9 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <div className="w-30 h-12">
-                    <img className="w-full h-full rounded-full" src={logan1} alt="" />
-                </div>
+
+                <img className="w-12 rounded-full" src={logan1} alt="" />
+
                 <a className="btn btn-ghost normal-case text-xl">BrandShop</a>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -78,9 +78,9 @@ const Navbar = () => {
 
                 }
                 {
-                    theme ?  <button className="btn" onClick={handleDark}><BsFillMoonFill></BsFillMoonFill></button> : <button className="btn" onClick={handleLight}><BsFillBrightnessHighFill></BsFillBrightnessHighFill></button>
+                    theme ? <button className="btn" onClick={handleDark}><BsFillMoonFill></BsFillMoonFill></button> : <button className="btnb" onClick={handleLight}><BsFillBrightnessHighFill></BsFillBrightnessHighFill></button>
                 }
-                
+
             </div>
         </div>
     );
