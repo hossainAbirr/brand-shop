@@ -48,6 +48,24 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm gap-4 dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        {
+                            user ? <div className="flex gap-3">
+                                <div>
+                                    <h2 className="text-lg">Name</h2>
+                                    {
+                                        user &&
+                                        <h2>{user.displayName ? user.displayName : `Name Not Found`}</h2>
+                                    }
+                                </div>
+                                <div className="avatar w-12">
+                                    <img className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src={user.photoURL ? user.photoURL : avatar} alt="" />
+                                </div>
+                            </div> : ''
+                        }
+                        {
+                            user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <button className="btn"><Link to='/login'>Log In</Link></button>
+                        }
+
                         {navLinks}
                     </ul>
                 </div>
@@ -61,10 +79,10 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end gap-2">
+            <div className="navbar-end gap-2 ">
 
                 {
-                    user ? <div className="avatar">
+                    user ? <div className="hidden lg:avatar">
                         <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={user.photoURL ? user.photoURL : avatar} alt="" />
                         </div>
@@ -72,11 +90,13 @@ const Navbar = () => {
                 }
                 {
                     user &&
-                    <h2>{user.displayName ? user.displayName : `Name Not Found`}</h2>
+                    <h2 className="hidden lg:block">{user.displayName ? user.displayName : `Name Not Found`}</h2>
                 }
-                {user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <button className="btn"><Link to='/login'>Log In</Link></button>
-
-                }
+                <div className="hidden lg:block">
+                    {
+                        user ? <button onClick={handleLogOut} className="btn">Log Out</button> : <button className="btn"><Link to='/login'>Log In</Link></button>
+                    }
+                </div>
                 {
                     theme ? <button className="btn" onClick={handleDark}><BsFillMoonFill></BsFillMoonFill></button> : <button className="btnb" onClick={handleLight}><BsFillBrightnessHighFill></BsFillBrightnessHighFill></button>
                 }

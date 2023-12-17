@@ -1,13 +1,12 @@
 
 import { Link } from 'react-router-dom';
-const NoProduct = () => {
+const CartError = () => {
     return (
         <div className="flex flex-col h-screen justify-center items-center">
-            <h2 className="text-8xl font-bold">No Products Added Yet!</h2>
-            <p className='text-2xl mt-5 '>Product will be added soon!</p>
+            <h2 className="text-4xl font-bold">You haven&apos;t added any product to your Cart yet!</h2>
             <button className="btn mt-10"><Link to="/">Go Home</Link></button>
         </div>
     );
 };
 
-export default NoProduct;
+export default CartError;

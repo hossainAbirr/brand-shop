@@ -35,10 +35,9 @@ const Lognin = () => {
                 console.error(error.message);
                 console.error(error.code);
                 if (error) {
-                    setError('Your password or email address is incorrect!')
                     Swal.fire(
                         'Oops!!',
-                        `${registrationError}!`,
+                        'Your password or email address is incorrect!',
                         'error'
                     )
                 }

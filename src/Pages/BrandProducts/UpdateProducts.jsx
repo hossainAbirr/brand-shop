@@ -38,12 +38,12 @@ const UpdateProducts = () => {
             })
     }
     return (
-        <div className="bg-[#F4F3F0] px-24 py-16">
-            <h2 className="text-3xl font-bold">Update Car by Brand Category</h2>
+        <div className="bg-[#F4F3F0] px-8 lg:px-24 py-16">
+            <h2 className="text-3xl font-bold">Update Product by Brand Category</h2>
             <form onSubmit={handleUpdateProducts}>
                 {/* name row */}
-                <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-1/2">
+                <div className="lg:flex gap-5">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Car Name</span>
                         </label>
@@ -51,7 +51,7 @@ const UpdateProducts = () => {
                             <input type="text" placeholder="Enter Car Name &  Model" defaultValue={name} name="name" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Brand Name</span>
                         </label>
@@ -63,8 +63,8 @@ const UpdateProducts = () => {
                     </div>
                 </div>
                 {/* another row */}
-                <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-1/2">
+                <div className="lg:flex bg-[] gap-5">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Product Type</span>
                         </label>
@@ -77,7 +77,7 @@ const UpdateProducts = () => {
                             </select>
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Car Price</span>
                         </label>
@@ -88,8 +88,8 @@ const UpdateProducts = () => {
 
                 </div>
                 {/* another row */}
-                <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-1/2">
+                <div className="lg:flex bg-[] gap-5">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Car Rating</span>
                         </label>
@@ -97,7 +97,7 @@ const UpdateProducts = () => {
                             <input type="text" placeholder="Enter Car Rating" defaultValue={rating} name="rating" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Photo</span>
                         </label>

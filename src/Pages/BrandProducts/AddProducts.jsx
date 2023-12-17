@@ -35,12 +35,12 @@ const AddProducts = () => {
         })
     }
     return (
-        <div className="bg-[#F4F3F0] px-24 py-16">
+        <div className="bg-[#F4F3F0] px-8 lg:px-24 py-16">
             <h2 className="text-3xl font-bold">Add Product by Brand Category</h2>
             <form onSubmit={handleAddProducts}>
                 {/* name row */}
-                <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-1/2">
+                <div className="lg:flex bg-[] gap-5">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Product Name</span>
                         </label>
@@ -48,7 +48,7 @@ const AddProducts = () => {
                             <input type="text" placeholder="Enter Car Name &  Model" name="name" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Brand Name</span>
                         </label>
@@ -65,8 +65,8 @@ const AddProducts = () => {
                     </div>
                 </div>
                 {/* another row */}
-                <div className="flex bg-[] gap-5">
-                <div className="form-control md:w-1/2">
+                <div className="lg:flex bg-[] gap-5">
+                <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Product Type</span>
                         </label>
@@ -78,7 +78,7 @@ const AddProducts = () => {
                             </select>
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Product Price</span>
                         </label>
@@ -86,7 +86,7 @@ const AddProducts = () => {
                             <input type="text" placeholder="Enter Car Price" name="price" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control lg:w-1/2">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Product Rating</span>
                         </label>
@@ -96,8 +96,8 @@ const AddProducts = () => {
                     </div>
                 </div>
                 {/* another row */}
-                <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-full">
+                <div className="lg:flex bg-[] gap-5">
+                    <div className="form-control lg:w-full">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Short Description</span>
                         </label>
@@ -107,8 +107,8 @@ const AddProducts = () => {
                     </div>
                 </div>
                 {/* another row  */}
-                <div className="flex bg-[] gap-5">
-                    <div className="form-control md:w-full">
+                <div className="lg:flex bg-[] gap-5">
+                    <div className="form-control lg:w-full">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Photo</span>
                         </label>

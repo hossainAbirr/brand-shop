@@ -1,11 +1,13 @@
 
-import { useLoaderData } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLoaderData, useLocation } from 'react-router-dom';
 import CarCard from './CarCard';
 import NoProduct from './NoProduct';
+
 const BrandProducts = () => {
     const loadedData = useLoaderData();
-    if(loadedData.length === 0){
+    const location = useLocation()
+    console.log(location);
+    if (loadedData.length === 0) {
         return <NoProduct></NoProduct>
     }
     console.log(loadedData);
@@ -45,15 +47,17 @@ const BrandProducts = () => {
                     </div>
                 </div>
             </div>
-
-            <div className='grid grid-cols-1 gap-10 md:grid-cols-2 bg-base-200 my-20 py-24 px-10'>
-                {
-                    loadedData?.map(car => <CarCard
-                    key={car._id}
-                    car={car}
-                    ></CarCard>)
-                }
-            </div>
+            <section className='bg-base-200 '>
+                <h2 className='pt-10 text-4xl font-bold'>All products from {location.state}</h2>
+                <div className='grid grid-cols-1 gap-5 lg:gap-10 md:grid-cols-2 bg-base-200 my-20  pb-24 px-5 lg:px-10'>
+                    {
+                        loadedData?.map(car => <CarCard
+                            key={car._id}
+                            car={car}
+                        ></CarCard>)
+                    }
+                </div>
+            </section>
         </div>
     );
 };

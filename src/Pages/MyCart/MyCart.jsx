@@ -2,11 +2,15 @@
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import CartError from './CartError';
 const MyCart = () => {
     const loadedCartProducts = useLoaderData();
     const [cartProducts, setCartProducts] = useState(loadedCartProducts);
-    console.log(cartProducts);
-
+    // console.log(cartProducts);
+    if (cartProducts.length === 0) {
+        return <CartError></CartError>
+    }
+    console.log(loadedCartProducts.length, cartProducts.length);
     const handleDelete = (id) => {
         fetch(`https://brand-shop-server-b8-a10.vercel.app/cart/${id}`, {
             method: "DELETE"
@@ -15,8 +19,6 @@ const MyCart = () => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount > 0) {
-                    const reamaining = cartProducts.filter(product => product._id !== id)
-                    setCartProducts(reamaining)
                     Swal.fire({
                         title: 'Are you sure?',
                         text: "You won't be able to revert this!",
@@ -27,6 +29,8 @@ const MyCart = () => {
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            const reamaining = cartProducts.filter(product => product._id !== id)
+                            setCartProducts(reamaining)
                             Swal.fire(
                                 'Deleted!',
                                 'Your product has been deleted.',
